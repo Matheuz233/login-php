@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: font-family, 'Nunito', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #263238 ;
+    width: 35%;
+    padding: 5px;
+}
+
+.logo {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.logo img {
+    width: 125px;
+}
+
+.text {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.text p {
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ilustracao {
+    display: flex;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+@media (max-width: 575.98px) {
+    .sidebar {
+        display: none;
+    }   
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .text p {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+   
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    
+}
+
+@media (min-width: 1200px) {
+   
+}
