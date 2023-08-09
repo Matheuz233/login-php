@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
+:root {
+    --white: #FFFFFF;
+    --green1: #63D691;
+    --green2: #58BB84;
+    --green3: #56AF77;
+    --green4: #5E9172;
+    --brown: #514A42;
+    --grey1: #263238;
+    --grey2: #ece8e8;
+    --black: #000000;
+    --red: #ED5757;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +22,7 @@
 
 .container {
     display: flex;
+    width: 100%;
     height: 100vh;
     flex-direction: row;
 }
@@ -17,7 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #263238 ;
+    background: var(--grey1);
     width: 35%;
     padding: 5px;
 }
@@ -41,7 +55,7 @@
 }
 
 .text p {
-    color: white;
+    color: var(--white);
     font-size: 35px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -56,31 +70,214 @@
     justify-content: center;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.topSide {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+    justify-content: right;
+    height: 10%;
+}
+
+.bottomSide {
+    display: flex;
+    height: 90%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid var(--black);
+}
+
+.msg{
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--white);
+    padding: 9px 10px;
+    margin-bottom: 12px;
+    background-color: var(--red);
+    border-radius: 3px;
+
+}
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.input {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+.input .label {
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: space-between; 
+}
+
+.input .label a {
+    font-size: 14px;
+}
+
+.input input {
+    background-color: var(--grey2);
+    font-size: 15px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    padding: 7px 10px;
+    box-shadow: 2px 2px rgba(119, 115, 115, 0.555);
+    transition: 0.25s ease-in;
+}
+
+.input input:hover {
+    border: 2px solid var(--green4);
+    background-color: var(--white);
+}
+
+a {
+    color: #9381FF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #715FDB;
+}
+
+.submit {
+    font-size: 15px;
+    color: var(--white);
+    padding: 5px 14%;
+    border: transparent;
+    border-radius: 3px;
+    margin-top: 5px;
+    background-color: var(--green1);
+    box-shadow: 2px 2px rgba(119, 115, 115, 0.555);
+    transition: 0.25s ease-in;
+}
+
+.submit:hover {
+    background-color: var(--green4);
+}
+
+
 
 
 
 
 
 @media (max-width: 575.98px) {
+    .msg{
+        text-align: center;
+    }
+} 
+
+@media (max-width: 767.98px) {
+
+    .msg{
+        font-size: 20px;
+    }
+
+    .input .label {
+        font-size: 24px;
+    }
+
+    .input .label a {
+       font-size: 19px;
+    }
+
+    .input input {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .submit{
+        font-size: 20px;
+    }
     .sidebar {
         display: none;
-    }   
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .text p {
-        font-size: 30px;
     }
+
+    .content {
+        width: 100%;
+    }
+
+    .login {
+        width: 80%;
+    }
+  
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-   
+@media (min-width: 768.98px) and (max-width: 991.98px) {
+    
+    .msg {
+        font-size: 20px;
+    }
+
+    .input .label {
+        font-size: 24px;
+    }
+
+    .input .label a {
+       font-size: 19px;
+    }
+
+    .input input {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .submit{
+        font-size: 20px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+   .content {
+        width: 100%;
+    }
+
+    .login {
+        width: 55%;
+    }
+    
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+/* @media (min-width: 992px) and (max-width: 1199.98px) {
     
 }
 
 @media (min-width: 1200px) {
    
-}
+} */
