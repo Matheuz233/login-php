@@ -8,7 +8,7 @@
     --green4: #5E9172;
     --brown: #514A42;
     --grey1: #263238;
-    --grey2: #ece8e8;
+    --grey2: #f0f0f0;
     --black: #000000;
     --red: #ED5757;
 }
@@ -16,7 +16,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: font-family, 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
 }
 
@@ -32,7 +32,7 @@
     flex-direction: column;
     align-items: center;
     background: var(--grey1);
-    width: 35%;
+    width: 30%;
     padding: 5px;
     overflow: hidden;
 }
@@ -79,7 +79,7 @@
 .content {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 70%;
 }
 
 .topSide {
@@ -113,7 +113,7 @@
     border-bottom: 1.5px solid var(--black);
 }
 
-.msg{
+.msg {
     display: flex;
     justify-content: center;
     font-size: 17px;
@@ -123,11 +123,6 @@
     background-color: var(--red);
     border-radius: 3px;
     text-align: center;
-}
-.form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
 }
 
 .input {
@@ -142,7 +137,7 @@
     display: flex;
     width: 100%;
     align-items: end;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .input .label a {
@@ -157,9 +152,11 @@
     padding: 7px 10px;
     box-shadow: 2px 2px rgba(119, 115, 115, 0.555);
     transition: 0.25s ease-in;
+    outline: none;
 }
 
-.input input:hover {
+.input input:hover,
+.input input:focus {
     border: 2px solid var(--green4);
     background-color: var(--white);
 }
@@ -189,17 +186,8 @@ a:hover {
     background-color: var(--green4);
 }
 
-
-
-
-
-/* @media (max-width: 575.98px) {
-
-}  */
-
 @media (max-width: 767.98px) {
-
-    .msg{
+    .msg {
         font-size: 20px;
     }
 
@@ -208,7 +196,7 @@ a:hover {
     }
 
     .input .label a {
-       font-size: 19px;
+        font-size: 19px;
     }
 
     .input input {
@@ -219,9 +207,10 @@ a:hover {
         font-size: 28px;
     }
 
-    .submit{
+    .submit {
         font-size: 20px;
     }
+
     .sidebar {
         display: none;
     }
@@ -232,12 +221,11 @@ a:hover {
 
     .login {
         width: 80%;
+        text-align: center;
     }
-  
 }
 
 @media (min-width: 768.98px) and (max-width: 991.98px) {
-    
     .msg {
         font-size: 20px;
     }
@@ -247,7 +235,7 @@ a:hover {
     }
 
     .input .label a {
-       font-size: 19px;
+        font-size: 19px;
     }
 
     .input input {
@@ -258,7 +246,7 @@ a:hover {
         font-size: 28px;
     }
 
-    .submit{
+    .submit {
         font-size: 20px;
     }
 
@@ -266,20 +254,12 @@ a:hover {
         display: none;
     }
 
-   .content {
+    .content {
         width: 100%;
     }
 
     .login {
         width: 55%;
+        text-align: center;
     }
-    
 }
-
-/* @media (min-width: 992px) and (max-width: 1199.98px) {
-    
-}
-
-@media (min-width: 1200px) {
-   
-} */
