@@ -52,13 +52,13 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 90px;
     text-align: center;
 }
 
 .text p {
     color: var(--white);
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -73,7 +73,7 @@
 }
 
 .ilustracao img {
-    width: 90%;
+    width: 100%;
 }
 
 .content {
