@@ -65,7 +65,7 @@
 
 .ilustracao {
     display: flex;
-    width: 120%;
+    width: 100%;
     margin-top: auto;
     margin-bottom: 100px;
     align-items: center;
@@ -73,7 +73,7 @@
 }
 
 .ilustracao img {
-    width: 90%;
+    width: 100%;
 }
 
 .content {
