@@ -1,3 +1,11 @@
+<?php
+
+    $routes = require "src/includes/routes.php";
+    require_once "src/includes/msgError.php";
+    require_once "src/includes/function.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,7 +21,7 @@
     <section class="container">
         <div class="sidebar">
             <div class="logo">
-                <a href="./index.html"><img src="./src/img/logo.png" alt="EaseList"></a>
+                <a href="<?php echo escapeHTML($routes["home"]); ?>"><img src="./src/img/logo.png" alt="EaseList"></a>
             </div>
             <div class="text">
                 <p>Conquer tasks effortlessly</p>
@@ -26,7 +34,7 @@
 
         <div class="content">
             <div class="topSide">
-                <p>Are you a member? <a href="index.html">Sign in</a></p>
+                <p>Are you a member? <a href="<?php echo escapeHTML($routes["login"]); ?>">Sign in</a></p>
             </div>
             <div class="bottomSide">
                 <div class="login">
@@ -34,7 +42,7 @@
                         <h1>Reset Password</h1>
                     </div>
 
-                    <form action="" method="post">
+                    <form action="reset.php" method="post">
                         <div class="input">
                             <div class="label">
                                 <label for="email">New Password</label>
@@ -48,7 +56,7 @@
                             <input type="password" name="confirmPassword" id="confirmPassword" required maxlength="50"
                                 minlength="8">
                         </div>
-                        <button type="submit" class="submit">Submit</button>
+                        <button type="submit" name="submit" class="submit">Submit</button>
                     </form>
                 </div>
             </div>
