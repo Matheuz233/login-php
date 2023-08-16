@@ -1,11 +1,10 @@
 <?php
 
-    $csrfToken = bin2hex(random_bytes(32));
-    $_SESSION['csrf_token'] = $csrfToken;
-
     $routes = require "src/includes/routes.php";
-    require_once "src/includes/msgError.php";
-    require_once "src/includes/function.php";
+    require "src/includes/msgError.php";
+    require "src/includes/function.php";
+
+    $csrfToken = csrf_token();
     
     function registerUser($firstName, $lastName, $email, $password) {
         
@@ -17,19 +16,21 @@
         mysqli_stmt_bind_param($stmt, 's', $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
-
+        
         if(mysqli_stmt_num_rows($stmt) > 0) {
             ErrorMessage::setMessage("Email has already been registered!");
         }
         else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
+            
             $sql = "INSERT INTO user (first_name_user, last_name_user, email_user, password_user) VALUES (?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, 'ssss', $firstName, $lastName, $email, $hashedPassword);
 
             if(mysqli_stmt_execute($stmt)) {
                 $routes = require "src/includes/routes.php";
+                require_once "sendEmail/sendEmail.php";
+                registerEmail($email, $firstName);
                 header('Location: ' . $routes["home"]);
                 exit();
             }
@@ -41,13 +42,12 @@
 
         mysqli_stmt_close($stmt);
     }
-    
 ?>
 
 <?php
-    
+
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        if(isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+        if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
             if(isset($_POST['submit']) && ($_POST['password'] == $_POST['confirmPassword'])) {
                 $firstName = sanitizeInput($_POST['name']);
                 $lastName = sanitizeInput($_POST['lastName']);
