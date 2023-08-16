@@ -1,5 +1,5 @@
 <?php
     
-    define("CHAVE_API", "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")
+    define("CHAVE_API", "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")
 
 ?>

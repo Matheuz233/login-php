@@ -11,7 +11,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EaseList</title>
+        <title>ListEase</title>
         <link rel="icon" href="./src/img/logo.png">
         <link rel="stylesheet" href="./src/css/style.css">
     </head>
@@ -20,11 +20,11 @@
         <section class="container">
             <div class="sidebar">
                 <div class="logo">
-                    <a href="<?php echo escapeHTML($routes["home"]); ?>"><img src="./src/img/logo.png" alt="EaseList"></a>
+                    <a href="<?php echo escapeHTML($routes["home"]); ?>"><img src="./src/img/logo.png" alt="ListEase"></a>
                 </div>
                 <div class="text">
                     <p>Conquer tasks effortlessly</p>
-                    <p>Let Listeasy be your guide</p>
+                    <p>Let ListEase be your guide</p>
                 </div>
                 <div class="ilustracao">
                     <img src="./src/img/Audiobook-bro.svg" alt="Audiobook">

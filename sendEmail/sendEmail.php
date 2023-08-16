@@ -6,7 +6,7 @@
 
         $sendgrid = new \SendGrid(CHAVE_API); // Substitua pela sua chave de API
 
-        $from = new \SendGrid\Mail\From('listeasybot@gmail.com', 'ListEasy');
+        $from = new \SendGrid\Mail\From('listeasybot@gmail.com', 'ListEase');
         $to = new \SendGrid\Mail\To($to, $name);
         $content = new \SendGrid\Mail\HtmlContent($content);
 
@@ -21,7 +21,7 @@
     }
 
     function registerEmail($to, $name) {
-        $subject = "Confirmação de Registro no ListEasy";
+        $subject = "Confirmação de Registro no EaseList";
         $content = '
             <div>
                 <div>
@@ -30,9 +30,9 @@
 
                 <div>
                     <h3 style="font-size: 1.5rem;">Olá ' . $name . ',</h3>
-                    <p style="font-size: 1.2rem;">Parabéns por se registrar no ListEasy! Estamos felizes em tê-lo(a) a bordo.</p>
+                    <p style="font-size: 1.2rem;">Parabéns por se registrar no ListEase! Estamos felizes em tê-lo(a) a bordo.</p>
                     <p style="font-size: 1.2rem;">Sua conta foi criada com sucesso. Aguarde futuras atualizações e novidades emocionantes à medida que continuamos a desenvolver nossa plataforma.</p>
-                    <p style="font-size: 1.3rem;">Atenciosamente, <b>Equipe ListEasy</b></p>
+                    <p style="font-size: 1.3rem;">Atenciosamente, <b>Equipe ListEase</b></p>
                 </div>
             </div>
         ';
