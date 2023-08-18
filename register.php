@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     $routes = require "src/includes/routes.php";
     require "src/includes/msgError.php";
     require "src/includes/function.php";
@@ -29,7 +31,7 @@
 
             if(mysqli_stmt_execute($stmt)) {
                 $routes = require "src/includes/routes.php";
-                require_once "sendEmail/sendEmail.php";
+                include_once "sendEmail/sendEmail.php";
                 registerEmail($email, $firstName);
                 header('Location: ' . $routes["login"]);
                 exit();
