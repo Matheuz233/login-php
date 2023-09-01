@@ -1,10 +1,36 @@
 <?php
 
+   session_start();
+
    $routes = require "src/includes/routes.php";
-   require_once "src/includes/msgError.php";
+   require_once "src/includes/msgAlert.php";
    require_once "src/includes/function.php";
 
+   $csrfToken = csrf_token();
+
 ?>
+
+<?php
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+            if(isset($_POST['submit']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $email = sanitizeInput($_POST['email']);
+   
+                forgotUser($firstName, $lastName, $email, $password);
+            }
+            else {
+                  AlertMessage::setMessage("Put a valid email.", "error");
+            }
+        }
+        else {
+            AlertMessage::setMessage("CSRF token validation failed.", "error");
+        }
+    }
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -41,9 +67,9 @@
                <div class="title">
                   <h1>Forgot Password</h1>
                </div>
-               <div class="msg">
-                  Your Email Address was not find!
-               </div>
+               
+               <?php AlertMessage::printMessage(); ?>
+
                <form action="forgot.php" method="post">
                   <div class="input">
                      <div class="label">
@@ -51,6 +77,7 @@
                      </div>
                      <input type="email" name="email" id="email" required maxlength="200">
                   </div>
+                  <input type="hidden" name="csrf_token" value="<?php echo escapeHTML($csrfToken); ?>">
                   <button type="submit" name="submit" class="submit">Submit</button>
                </form>
             </div>

@@ -3,7 +3,7 @@
 session_start();
 
 $routes = require "src/includes/routes.php";
-require_once "src/includes/msgError.php";
+require_once "src/includes/msgAlert.php";
 require_once "src/includes/function.php";
 
 $csrfToken = csrf_token();
@@ -28,11 +28,13 @@ function loginUser($email, $password){
             $routes = require "src/includes/routes.php";
             header("Location: " . $routes["painel"]);
             exit();
-        } else {
-            ErrorMessage::setMessage("Email Address or Password are Incorrect!");
+        } 
+        else {
+            AlertMessage::setMessage("Email Address or Password are Incorrect!", "error");
         }
-    } else {
-        ErrorMessage::setMessage("Email Address or Password are Incorrect!");
+    } 
+    else {
+        AlertMessage::setMessage("Email Address or Password are Incorrect!", "error");
     }
 
     mysqli_stmt_close($stmt);
@@ -52,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             loginUser($email, $password);
         }
     } else {
-        ErrorMessage::setMessage("CSRF token validation failed.");
+        AlertMessage::setMessage("CSRF token validation failed.", "error");
     }
 }
 
@@ -93,7 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="title">
                         <h1>Sign in to ListEase</h1>
                     </div>
-                    <?php ErrorMessage::printMessage(); ?>
+
+                    <?php AlertMessage::printMessage(); ?>
+
                     <form action="" method="post">
                         <div class="input">
                             <div class="label">

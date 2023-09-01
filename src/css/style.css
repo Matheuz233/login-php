@@ -113,14 +113,14 @@
     border-bottom: 1.5px solid var(--black);
 }
 
-.login .msg {
+.msg {
     display: flex;
     justify-content: center;
     font-size: 17px;
     color: var(--white);
     padding: 9px 10px;
     margin-bottom: 12px;
-    background-color: var(--red);
+    background-color: var(--clr);
     border-radius: 3px;
     text-align: center;
 }

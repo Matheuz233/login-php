@@ -3,7 +3,7 @@
     session_start();
 
     $routes = require "src/includes/routes.php";
-    require "src/includes/msgError.php";
+    require_once "src/includes/msgAlert.php";
     require "src/includes/function.php";
 
     $csrfToken = csrf_token();
@@ -20,7 +20,10 @@
         mysqli_stmt_store_result($stmt);
         
         if(mysqli_stmt_num_rows($stmt) > 0) {
-            ErrorMessage::setMessage("Email has already been registered!");
+            AlertMessage::setMessage("Email has already been registered!", "error");
+        } 
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            AlertMessage::setMessage("Put a valid email.", "error");
         }
         else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -37,7 +40,7 @@
                 exit();
             }
             else {
-                ErrorMessage::setMessage("Erro ao registrar usuário. Por favor, tente novamente.");
+                AlertMessage::setMessage("Error registering user. Please try again.", "error");
             }
 
         }
@@ -59,11 +62,11 @@
                 registerUser($firstName, $lastName, $email, $password);
             }
             else {
-                ErrorMessage::setMessage("Password is different from confirm password!");
+                AlertMessage::setMessage("Password is different from confirm password!", "error");
             }
         }
         else {
-            ErrorMessage::setMessage("CSRF token validation failed.");
+            AlertMessage::setMessage("CSRF token validation failed.", "error");
         }
     }
 
@@ -103,7 +106,7 @@
                             <h1>Register Now to ListEase</h1>
                         </div>
 
-                        <?php ErrorMessage::printMessage(); ?>
+                        <?php AlertMessage::printMessage(); ?>
 
                         <form action="" method="post">
                             <div class="inputs">
